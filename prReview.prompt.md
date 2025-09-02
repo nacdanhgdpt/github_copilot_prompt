@@ -119,3 +119,40 @@ Please structure your review report in the following format:
 #### 3. Conclusion
 *(Your final verdict. E.g., "I approve this PR pending the resolution of the [Critical] issues identified above.")*
 
+---
+
+## Line-Level Comment Tool Reference
+
+**IMPORTANT: Before leaving any line-specific comments, you MUST discuss with the user what comments to leave and get explicit approval.**
+
+**When instructed to leave line-specific comments on PR files, use this method:**
+
+```bash
+gh api \
+  --method POST \
+  -H "Accept: application/vnd.github+json" \
+  /repos/OWNER/REPO/pulls/PR_NUMBER/comments \
+  -F body='Your comment text here' \
+  -F commit_id='LATEST_COMMIT_ID' \
+  -F path='path/to/file.ext' \
+  -F line=LINE_NUMBER \
+  -F side='RIGHT'
+```
+
+**Comment Format Requirements:**
+- Use conversational English short sentences
+- Tone should be collaborative and discussion-oriented (like talking with a colleague)
+- Examples of good comment style:
+  - "What do you think about extracting this into a helper function?"
+  - "Should we add a null check here?"
+  - "This looks great! Maybe we could cache this result?"
+  - "Could we make this error message more specific?"
+
+**Parameters needed:**
+- `OWNER/REPO`: Repository owner and name
+- `PR_NUMBER`: Pull request number
+- `LATEST_COMMIT_ID`: Most recent commit ID in the PR branch (get via `git rev-parse HEAD`)
+- `path`: Relative path to the file from repository root
+- `line`: Line number where the comment should appear
+- `side`: Use 'RIGHT' for new code, 'LEFT' for old code in diff view
+
