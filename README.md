@@ -118,6 +118,11 @@ Analyzes changes and creates professional commit messages following best practic
 
 Conducts in-depth Pull Request reviews simulating senior developer expertise.
 
+**Prerequisites:**
+- GitHub CLI (`gh`) must be installed and authenticated
+- Install: `brew install gh` (macOS) or visit https://cli.github.com/
+- Authenticate: `gh auth login`
+
 **Capabilities:**
 - Fetches and analyzes PR metadata using GitHub CLI
 - Performs comprehensive change analysis
