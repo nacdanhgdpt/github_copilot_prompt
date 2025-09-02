@@ -20,12 +20,19 @@ To thoroughly analyze the specified Pull Request, identifying not just surface-l
 
 ## Execution Steps
 
+**CRITICAL GUIDELINES:**
+- Only use file reading and analysis commands. 
+- DO NOT execute build, test, compilation, or deployment commands (npm, yarn, make, mvn, etc.)
+- Always use `GH_PAGER=""` prefix when calling GitHub CLI commands to avoid interactive mode
+- Use `grep` for quick symbol location, but ALWAYS follow up by reading the complete file context around found symbols
+- Avoid using `head` or `tail` for final analysis - these commands truncate important information
+
 You must follow these steps precisely:
 
 ### 1. Information Gathering & Environment Setup
 
 #### 1.1. Fetch and Analyze PR Metadata
-- Use the command `gh pr view [PR_ID]` to fetch and parse the following key information:
+- Use the command `GH_PAGER="" gh pr view [PR_ID]` to fetch and parse the following key information:
   - PR title, description, and author.
   - The **Source Branch** name.
   - The **Target Branch** name (e.g., `main`, `develop`).
@@ -39,16 +46,18 @@ You must follow these steps precisely:
 - Using the **Source Branch** name obtained above, run `git checkout [Source Branch Name]`.
 - Run `git pull origin [Source Branch Name]` to ensure your local branch is fully synchronized with the remote PR branch.
 
-#### 1.4. Auto-detect Technology Stack
+#### 1.4. Analyze Technology Stack
 - After checking out the PR branch, inspect the repository's root directory and the modified files.
 - Determine the project's primary **programming language and framework** by analyzing key project files (e.g., `package.json`, `pom.xml`, `go.mod`, `pyproject.toml`) and file extensions (`.ts`, `.py`, `.go`, etc.).
 - Use this context (e.g., TypeScript/React) to apply the correct standards and best practices during the review.
+- **CRITICAL:** When analyzing code, you may use `grep` to quickly locate symbols, functions, or patterns. However, after finding the target with grep, you MUST read the complete file context around the found symbols to understand the full implementation, dependencies, and impact.
 
 ### 2. In-Depth Code Analysis
 
 #### 2.1. Review Overall Changes
 - Use the command `git diff [Target Branch Name]...[Source Branch Name]` to view the full diff.
 - First, quickly scan all modified files to get a high-level understanding of the scope and scale of the changes.
+- **IMPORTANT:** Read ALL changes completely. You may use `grep` to locate specific symbols or functions, but always follow up by reading the full context around those findings.
 
 #### 2.2. Review File-by-File, Change-by-Change
 - For each change (hunk), understand not just **"what was changed,"** but more importantly, **"why it was changed this way."**
