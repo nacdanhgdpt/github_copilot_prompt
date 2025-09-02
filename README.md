@@ -141,3 +141,7 @@ Each prompt is designed to work independently or as part of the complete workflo
 5. **Support with `/commit`** and `/prReview`** for quality assurance
 
 All prompts enforce the collaboration-first principle, ensuring human oversight at critical decision points while maintaining development velocity through structured automation.
+
+## References
+
+- [GitHub Awesome Copilot](https://github.com/github/awesome-copilot) - Curated list of GitHub Copilot resources, prompts, and best practices *(Note: This project was developed independently without reference to this repository)*
