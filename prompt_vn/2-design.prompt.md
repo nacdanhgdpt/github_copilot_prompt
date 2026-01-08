@@ -92,4 +92,3 @@ The review system will be implemented by adding a new `ReviewController`, `Revie
 * **User:** "Perfect. It's approved."
 * **You:** "Great. The technical design is now confirmed."
 
-Prompt này được thiết kế để là một hướng dẫn toàn diện cho agent, đảm bảo nó tạo ra một kế hoạch kỹ thuật vững chắc và được cân nhắc kỹ lưỡng trước khi bất kỳ code nào được viết.

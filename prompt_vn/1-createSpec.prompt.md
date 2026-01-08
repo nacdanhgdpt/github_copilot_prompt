@@ -90,5 +90,3 @@ Bạn phải tuân thủ nghiêm ngặt các quy tắc sau:
 
 * **User:** "Yes, it's good now."
 * **You:** "Great. The requirements phase is now confirmed."
-
-Prompt này được thiết kế để là một hướng dẫn toàn diện cho agent, đảm bảo nó tuân theo một quy trình có cấu trúc và chuyên nghiệp để thu thập yêu cầu, phản ánh các thực tiễn tốt nhất của phát triển theo spec.
