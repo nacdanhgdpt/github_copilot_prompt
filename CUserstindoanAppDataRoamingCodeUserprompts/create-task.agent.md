@@ -64,8 +64,8 @@ File **phải** được định dạng dưới dạng danh sách phân cấp:
 
 ### Sub-Tasks
 - Chia nhỏ mỗi task cấp cao
-- Định dạng: `  - Mô tả sub-task` (thụt lề 2 spaces)
-- Bullet points đơn giản (không có checkbox)
+- Định dạng: `  - [ ] Mô tả sub-task` (thụt lề 2 spaces + checkbox)
+- **QUAN TRỌNG**: Sub-tasks cũng phải có checkbox `[ ]` để agent Execute Task có thể đánh dấu hoàn thành
 - Cụ thể, có thể hành động
 
 ### Khả năng Truy vết (Traceability)
@@ -98,45 +98,45 @@ Sau khi tạo `tasks.md`, **không** yêu cầu phê duyệt. Thay vào đó, b�
 ## Tasks
 
 - [ ] 1. Set up database and data access layer
-  - Create database migration to add `reviews` table
-  - Run the database migration
-  - Implement `ReviewRepository` with CRUD methods
-  - Write unit tests for `ReviewRepository`
+  - [ ] Create database migration to add `reviews` table
+  - [ ] Run the database migration
+  - [ ] Implement `ReviewRepository` with CRUD methods
+  - [ ] Write unit tests for `ReviewRepository`
   - _Requirements: 1.1, 1.2_
 
 - [ ] 2. Implement core business logic and validation
-  - Implement `ReviewService.createReview()` method
-  - Add input validation for rating (1-5)
-  - Add input validation for comment length (max 500 chars)
-  - Implement authentication check (user must be logged in)
-  - Write unit tests for `ReviewService` validation logic
+  - [ ] Implement `ReviewService.createReview()` method
+  - [ ] Add input validation for rating (1-5)
+  - [ ] Add input validation for comment length (max 500 chars)
+  - [ ] Implement authentication check (user must be logged in)
+  - [ ] Write unit tests for `ReviewService` validation logic
   - _Requirements: 1.1, 1.3, 1.4_
 
 - [ ] 3. Expose functionality via API endpoints
-  - Create `POST /api/v1/reviews` endpoint in `ReviewController`
-  - Connect controller to `ReviewService`
-  - Implement error handling and response formatting
-  - Write integration tests for the endpoint
+  - [ ] Create `POST /api/v1/reviews` endpoint in `ReviewController`
+  - [ ] Connect controller to `ReviewService`
+  - [ ] Implement error handling and response formatting
+  - [ ] Write integration tests for the endpoint
   - _Requirements: 1.1, 1.5_
 
 - [ ] 4. Implement review retrieval functionality
-  - Implement `ReviewService.getReviewsByProduct()` method
-  - Add pagination support (10 reviews per page)
-  - Create `GET /api/v1/reviews?productId=X` endpoint
-  - Write integration tests for retrieval
+  - [ ] Implement `ReviewService.getReviewsByProduct()` method
+  - [ ] Add pagination support (10 reviews per page)
+  - [ ] Create `GET /api/v1/reviews?productId=X` endpoint
+  - [ ] Write integration tests for retrieval
   - _Requirements: 2.1, 2.2, 2.3_
 
 - [ ] 5. Add review display on product page
-  - Update product page component to fetch reviews
-  - Implement review list UI component
-  - Add pagination controls
-  - Write E2E tests for review display
+  - [ ] Update product page component to fetch reviews
+  - [ ] Implement review list UI component
+  - [ ] Add pagination controls
+  - [ ] Write E2E tests for review display
   - _Requirements: 2.1, 2.2, 2.3_
 
 - [ ] 6. Final integration and testing
-  - Run full test suite
-  - Verify all acceptance criteria are met
-  - Update documentation
+  - [ ] Run full test suite
+  - [ ] Verify all acceptance criteria are met
+  - [ ] Update documentation
   - _Requirements: All_
 ```
 

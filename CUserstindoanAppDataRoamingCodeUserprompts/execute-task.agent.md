@@ -92,8 +92,9 @@ Trước mỗi hành động, **phải** đọc `tasks.md` để biết:
 
 - **TÓM TẮT** mỗi tài liệu để chứng minh đã đọc hoàn toàn
 - **GIẢI THÍCH** cách task kết nối với kiến trúc tổng thể
-- **LIỆT KÊ** requirements cụ thể áp dụng cho task này
+- **LIỆT KÊ** requirements cụ thể áp dụng cho task này (từ `_Requirements` tag)
 - **XÁC ĐỊNH** ràng buộc/standards từ `.kiro/steering/` phải tuân theo
+- **ĐỌC** acceptance criteria của requirements để biết tiêu chí thành công
 
 **KHÔNG HOÀN THÀNH BƯỚC 2A VÀ 2B = THẤT BẠI TASK**
 
@@ -119,9 +120,11 @@ Trước khi viết code, **PHẢI** hoàn thành và báo cáo:
 - [ ] Đã đọc toàn bộ `design.md`? (Chứng minh bằng tóm tắt)
 - [ ] Đã đọc toàn bộ `requirements.md`? (Liệt kê requirements áp dụng)
 - [ ] Đã đọc tất cả `.kiro/steering/`? (Đề cập standards/policies chính)
+- [ ] Đã xác định requirements từ `_Requirements` tag? (Ví dụ: 1.1, 1.2, 2.3)
+- [ ] Đã đọc acceptance criteria của requirements đó? (Biết tiêu chí pass/fail)
 - [ ] Hiểu cách task phù hợp với kiến trúc? (Giải thích kết nối)
 - [ ] Đã xác định files cần sửa đổi? (Liệt kê rõ ràng)
-- [ ] Biết tiêu chí thành công? (Nêu rõ ràng)
+- [ ] Biết tiêu chí thành công? (Dựa trên acceptance criteria)
 
 **6. Sửa đổi Code**
 
@@ -132,16 +135,77 @@ Chỉ sau khi hoàn thành thu thập ngữ cảnh và checklist:
 
 **7. Cập nhật Trạng thái**
 
-Ngay sau khi hoàn thành task:
-- Sửa đổi `tasks.md`
-- Thay đổi checkbox từ `[ ]` thành `[x]`
+Sau khi hoàn thành công việc:
+
+### Quy tắc Đánh dấu Sub-Tasks
+- Đánh dấu sub-task hoàn thành ngay sau khi implement xong: `- [ ]` → `- [x]`
+- Mỗi lần hoàn thành một phần công việc, cập nhật sub-task tương ứng
+
+### Quy tắc Đánh dấu Task Cấp cao
+- **QUAN TRỌNG**: Chỉ đánh dấu task cấp cao hoàn thành `[x]` khi **TẤT CẢ** sub-tasks đã hoàn thành `[x]`
+- Kiểm tra tất cả sub-tasks trước khi đánh dấu task chính
+- Nếu còn bất kỳ sub-task nào chưa hoàn thành `[ ]`, task chính vẫn phải là `[ ]`
+
+### Ví dụ Cập nhật Trạng thái
+
+**Trường hợp 1: Đang thực hiện (một số sub-tasks hoàn thành)**
+```markdown
+- [ ] 1. Set up database and data access layer
+  - [x] Create database migration to add `reviews` table
+  - [x] Run the database migration
+  - [ ] Implement `ReviewRepository` with CRUD methods
+  - [ ] Write unit tests for `ReviewRepository`
+```
+→ Task chính vẫn là `[ ]` vì còn sub-tasks chưa xong
+
+**Trường hợp 2: Hoàn thành (tất cả sub-tasks xong)**
+```markdown
+- [x] 1. Set up database and data access layer
+  - [x] Create database migration to add `reviews` table
+  - [x] Run the database migration
+  - [x] Implement `ReviewRepository` with CRUD methods
+  - [x] Write unit tests for `ReviewRepository`
+```
+→ Task chính được đánh dấu `[x]` vì tất cả sub-tasks đã hoàn thành
 
 **8. Báo cáo**
 
 Sau khi hoàn thành và cập nhật:
 - Báo cáo thành công cho người dùng
-- Nêu rõ task nào đã hoàn thành
+- Nêu rõ sub-task/task nào đã hoàn thành
+- Nếu task chính chưa hoàn thành (còn sub-tasks), báo cáo tiến độ
 - Giải thích cách nó phù hợp với đặc tả thiết kế
+
+**Ví dụ Báo cáo:**
+
+**Khi hoàn thành sub-task:**
+```
+✅ Sub-task hoàn thành: Create database migration
+
+Đã tạo migration file với schema đúng như design.
+
+Task 1 tiến độ: 2/4 sub-tasks hoàn thành
+- [x] Create database migration
+- [x] Run the database migration
+- [ ] Implement ReviewRepository
+- [ ] Write unit tests
+
+Sẵn sàng tiếp tục với sub-task tiếp theo.
+```
+
+**Khi hoàn thành toàn bộ task:**
+```
+✅ Task 1 hoàn thành: Set up database and data access layer
+
+Tất cả sub-tasks đã hoàn thành:
+- [x] Create database migration
+- [x] Run the database migration
+- [x] Implement ReviewRepository
+- [x] Write unit tests
+
+Đã cập nhật tasks.md đánh dấu task 1 hoàn thành.
+Sẵn sàng cho task tiếp theo.
+```
 
 **9. Xử lý Lỗi**
 
