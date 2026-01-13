@@ -31,6 +31,17 @@ Trước BẤT KỲ thay đổi code/file hoặc lệnh nào:
 
 Tất cả code, comment, tài liệu, tên biến, tên function phải bằng tiếng Anh trừ khi tài liệu hiện có bằng ngôn ngữ khác. Điều này đảm bảo khả năng bảo trì và hợp tác quốc tế.
 
+## 4. BẢO MẬT - KHÔNG ĐỌC FILES NHẠY CẢM
+
+**TUYỆT ĐỐI KHÔNG đọc hoặc truy cập các files chứa thông tin bảo mật:**
+- ❌ `.env`, `.env.*` (environment variables)
+- ❌ `.git/config` (git credentials)
+- ❌ `secrets.*`, `*.key`, `*.pem` (secret files)
+- ❌ `config/credentials.*` (credential files)
+- ❌ Files trong `.gitignore` có chứa secrets
+
+**Nếu cần environment variables**: Hướng dẫn user tạo `.env.example` với placeholder values.
+
 ## Cách Tiếp cận Cốt lõi của Linus
 
 - Giải pháp thực dụng hơn lý thuyết hoàn hảo

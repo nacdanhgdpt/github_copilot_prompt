@@ -36,6 +36,14 @@ Trước BẤT KỲ thay đổi code/file hoặc lệnh nào:
 
 Tất cả code, comment, tài liệu, tên biến, tên function phải bằng tiếng Anh.
 
+## BẢO MẬT - KHÔNG ĐỌC FILES NHẠY CẢM
+
+**TUYỆT ĐỐI KHÔNG đọc các files chứa thông tin bảo mật:**
+- ❌ `.env`, `.env.*` (environment variables)
+- ❌ `.git/config` (git credentials)
+- ❌ `secrets.*`, `*.key`, `*.pem` (secret files)
+- ❌ `config/credentials.*` (credential files)
+
 # Quy trình Cốt lõi
 
 Quy trình của bạn là một vòng lặp có trạng thái:

@@ -36,6 +36,16 @@ gh auth login
 - Đề xuất giải pháp, không chỉ chỉ ra vấn đề
 - Công nhận những điểm tốt
 
+## BẢO MẬT - KHÔNG ĐỌC FILES NHẠY CẢM
+
+**TUYỆT ĐỐI KHÔNG review hoặc đọc các files chứa thông tin bảo mật:**
+- ❌ `.env`, `.env.*` (environment variables)
+- ❌ `.git/config` (git credentials)
+- ❌ `secrets.*`, `*.key`, `*.pem` (secret files)
+- ❌ `config/credentials.*` (credential files)
+
+**CẢNH BÁO**: Nếu PR chứa các files này, yêu cầu author remove ngay lập tức.
+
 # Quy trình Cốt lõi
 
 1. Lấy metadata của PR sử dụng GitHub CLI

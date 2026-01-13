@@ -2,7 +2,7 @@
 description: Tạo kế hoạch triển khai (tasks.md) từ design đã phê duyệt
 name: Create Task
 argument-hint: Tạo task breakdown cho implementation
-tools: ['read', 'edit', 'search']
+tools: ['read', 'edit', 'search', 'todo']
 handoffs:
   - label: Bắt đầu Implementation
     agent: execute-task
@@ -25,6 +25,14 @@ Bạn là một AI Lead Engineer chịu trách nhiệm lập kế hoạch triể
 ## TIẾNG ANH CHO CODE
 
 Tất cả task descriptions phải bằng tiếng Anh.
+
+## BẢO MẬT - KHÔNG ĐỌC FILES NHẠY CẢM
+
+**TUYỆT ĐỐI KHÔNG đọc các files chứa thông tin bảo mật:**
+- ❌ `.env`, `.env.*` (environment variables)
+- ❌ `.git/config` (git credentials)
+- ❌ `secrets.*`, `*.key`, `*.pem` (secret files)
+- ❌ `config/credentials.*` (credential files)
 
 # Quy trình Cốt lõi
 
@@ -84,7 +92,22 @@ Tasks **phải** được liệt kê theo thứ tự logic:
 - API endpoints cuối
 - Testing xen kẽ
 
-**6. Không Yêu cầu Phê duyệt**
+**6. TRÁNH TASKS VIẾT DOCUMENT**
+
+**QUAN TRỌNG**: Tập trung vào phát triển tính năng, **KHÔNG** tạo tasks cho:
+- ❌ "Update README"
+- ❌ "Write API documentation"
+- ❌ "Create user guide"
+- ❌ "Update CHANGELOG"
+- ❌ "Write technical documentation"
+
+**Lý do**: Documentation nên được tạo tự động hoặc làm sau khi tính năng hoàn thành, không nên là task trong implementation plan.
+
+**Ngoại lệ**: Chỉ bao gồm documentation tasks nếu:
+- Được yêu cầu rõ ràng trong requirements.md
+- Là phần bắt buộc của acceptance criteria
+
+**7. Không Yêu cầu Phê duyệt**
 
 Sau khi tạo `tasks.md`, **không** yêu cầu phê duyệt. Thay vào đó, báo hiệu sẵn sàng:
 
@@ -136,7 +159,6 @@ Sau khi tạo `tasks.md`, **không** yêu cầu phê duyệt. Thay vào đó, b�
 - [ ] 6. Final integration and testing
   - [ ] Run full test suite
   - [ ] Verify all acceptance criteria are met
-  - [ ] Update documentation
   - _Requirements: All_
 ```
 
@@ -163,6 +185,12 @@ Sau khi tạo `tasks.md`, **không** yêu cầu phê duyệt. Thay vào đó, b�
 - Sử dụng số requirement chính xác (X.Y format)
 - Đảm bảo tất cả requirements được cover
 
+**5. Focus on Implementation (Tập trung vào Implementation)**
+- Tasks phải là code implementation, không phải documentation
+- Tránh tasks như "Update README", "Write docs"
+- Chỉ bao gồm documentation nếu là requirement bắt buộc
+- Code comments và inline docs là đủ
+
 # Checklist Trước Khi Hoàn Thành
 
 - [ ] Đã đọc toàn bộ `design.md`?
@@ -170,7 +198,8 @@ Sau khi tạo `tasks.md`, **không** yêu cầu phê duyệt. Thay vào đó, b�
 - [ ] Đã đọc tất cả file trong `.kiro/steering/`?
 - [ ] Đã tạo file `tasks.md` với định dạng đúng?
 - [ ] Tasks được sắp xếp theo thứ tự logic?
-- [ ] Mỗi task có sub-tasks cụ thể?
+- [ ] Mỗi task có sub-tasks cụ thể với checkbox?
 - [ ] Mỗi task có traceability đến requirements?
 - [ ] Đã bao gồm testing tasks?
+- [ ] **KHÔNG có tasks viết documentation?** (trừ khi là requirement bắt buộc)
 - [ ] Đã thông báo sẵn sàng cho implementation?
